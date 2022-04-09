@@ -1,39 +1,39 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Employee Information</title>
+        <title>Employee Information</title>
 </head>
 <center>
-	<font color="black" size="5" style="font-family: avenir">
+        <font color="black" size="5" style="font-family: avenir">
 
-		<h1 style="color: DodgerBlue">Employee Information</h1>
+                <h1 style="color: DodgerBlue">Employee Information</h1>
 
-		<body bgcolor="lightgrey">
+                <body bgcolor="lightgrey">
 
-			<form>
+                        <form>
 
-				<div>
+                                <div>
 
-			  		Employee ID:<br> {{ id }} <br><br>
+                                        Employee ID:<br> {{ id }} <br><br>
 
-			  		First Name:<br> {{ fname }} <br><br>
+                                        First Name:<br> {{ fname }} <br><br>
 
-			  		Last Name:<br> {{ lname }} <br><br>
+                                        Last Name:<br> {{ lname }} <br><br>
 
-			  		Primary Interest:<br> {{ interest }} <br><br>
+                                        Primary Interest:<br> {{ interest }} <br><br>
 
-			  		Location:<br> {{ location }} <br><br>
+                                        Location:<br> {{ location }} <br><br>
+										
+                                        Image URL: <br><a href= {{ image_url }}>Image URL </a> <br><br>
 
-			  		Image URL: <br> {{ image_url }} <br><br>
+                                        <button type="submit" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;" formaction="http://3.237.234.68:8080/getemp">RESET</button><br><br>
+                                </div>
 
-			  		<button type="submit" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;" formaction="http://3.134.115.108:80/getemp">RESET</button><br><br>
+                        </form>
 
-			  	</div>
+                </body>
 
-			</form>
-
-		</body>
-
-	</font>
+        </font>
 </center>
 </html>
