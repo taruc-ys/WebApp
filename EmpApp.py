@@ -17,9 +17,9 @@ db_conn = connections.Connection(
     db=customdb
 
 )
-output = {}
-table = 'employee'
-link = "http://3.237.234.68:8080/"
+ACCESS_ID = 'ASIAUMF277DFYYPFLL3Y'
+ACCESS_KEY = 'fsS2SdWSv/AKgMXJlkgeOWTR8CaQx97KY2M1tkZL'
+ACCESS_TOKEN = 'FwoGZXIvYXdzEHUaDFivxJaHqoZ59K/irSLPAbXNbVsxYiRpS+RD1VgP751zM4YiYTxbPpqP3FnduF7unjhUcYNT5v8iI8AEPwI8IuPprCDQXE/P9hOim8Yr/Bztt0SLKKttjczFdJlXkF84FfrQp7K3XngTZCOrSElVeM3PyXvlfFxk1S+DdQ/xXUbZILdK85d+Z5CmAS3ByLBl+lKQEbasVAddDgYbnjOPmfMRotOnnFuKaVj0bowgk7yfV6HaXVZsRb91mOMEs2tWz2Y89YjWteizocN/iWPN9wEFGYlyJKRwIjKU1rgw1yiGoMmSBjItzMlpNdunhYkyhxfTeUpYPDKORXrotoQA92YUOV05pVbTmW9mNP13q0XoOfcO'
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -66,9 +66,7 @@ def AddEmp():
             
         try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
-			ACCESS_ID = 'ASIAUMF277DF5A7V7EKH'
-			ACCESS_KEY = 'xI9IFiFmBeDDhyldedjCcXN2MmyDoQi+cPWyVico'
-			ACCESS_TOKEN = 'FwoGZXIvYXdzEFwaDBXDs7c3A1AMGIpmcyLPAQYMLYUcHGjzRYFHk9WzAOo/MkAJyOffk12ITbU+cIKtRmoqebHjo+rqRcHts+rQvaFScCr0J/ry0dVyqfk9Uedf8VhfsmHko4JOOtvqax/NtmbeD0L54IU0e+y6tPmlIBC6kp03MVQ8tmyl9F4Kpy8NU8qWamisXRmNC5bNm3fejyjAu4ezg83p3ioXbeshuoll1BrOI3dlxLZbjcBgtUbc2xniJb1ytT4q4o8O4/LdIAPXw8Pdhn4IqZCaO+7haO1ED09k+GtzneA6g4ivryjM2MOSBjItqqZmjwzXtVjFxXE8kfMXXVygjm9Q3eKfCW8Mk0YwQddh2JprRUOD5XnaRg83'
+			
 			s3 = boto3.resource('s3', aws_access_key_id=ACCESS_ID, aws_secret_access_key= ACCESS_KEY, aws_session_token = ACCESS_TOKEN)
 			
 			s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
@@ -113,9 +111,6 @@ def GetEmp():
 
         try:		
             print("Data retrieved from MySQL RDS... obtaining image url from S3...")
-            ACCESS_ID = 'ASIAUMF277DF5A7V7EKH'
-            ACCESS_KEY = 'xI9IFiFmBeDDhyldedjCcXN2MmyDoQi+cPWyVico'
-            ACCESS_TOKEN = 'FwoGZXIvYXdzEFwaDBXDs7c3A1AMGIpmcyLPAQYMLYUcHGjzRYFHk9WzAOo/MkAJyOffk12ITbU+cIKtRmoqebHjo+rqRcHts+rQvaFScCr0J/ry0dVyqfk9Uedf8VhfsmHko4JOOtvqax/NtmbeD0L54IU0e+y6tPmlIBC6kp03MVQ8tmyl9F4Kpy8NU8qWamisXRmNC5bNm3fejyjAu4ezg83p3ioXbeshuoll1BrOI3dlxLZbjcBgtUbc2xniJb1ytT4q4o8O4/LdIAPXw8Pdhn4IqZCaO+7haO1ED09k+GtzneA6g4ivryjM2MOSBjItqqZmjwzXtVjFxXE8kfMXXVygjm9Q3eKfCW8Mk0YwQddh2JprRUOD5XnaRg83'
             s3 = boto3.resource('s3', aws_access_key_id=ACCESS_ID, aws_secret_access_key= ACCESS_KEY, aws_session_token = ACCESS_TOKEN)
 
             bucket = s3.Bucket(custombucket)
